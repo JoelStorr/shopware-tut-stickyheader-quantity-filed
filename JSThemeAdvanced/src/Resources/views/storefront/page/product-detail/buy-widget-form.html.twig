@@ -1,0 +1,58 @@
+{% sw_extends '@Shopware/storefront/page/product-detail/buy-widget-form.html.twig'%}
+
+{% block page_product_detail_buy_quantity %}
+    
+    {% set maxQuantity = page.product.availableStock %}
+
+
+    {% if page.product.maxPurchase != null %}
+
+        {% if page.product.availableStock < page.product.maxPurchase %}
+            {% set maxQuantity = page.product.availableStock %}
+        {% else %}
+            {% set maxQuantity = page.product.maxPurchase %}
+        {% endif %}
+   {#  {% else %}
+        {% set maxQuantity = shopware.config.core.cart.maxQuantity %} #}
+    {% endif %}
+
+
+
+    <div 
+        class="product-detail-quantity-input input-group input-group-lg"   
+        data-quantity-field=true
+        data-quantity-field-options='{
+            "purchaseSteps":"{{page.product.purchaseSteps}}",
+            "maxQuantity" : "{{ maxQuantity }}"
+        }'
+    >
+
+
+        <div class="input-group-prepend">
+            <button class="btn btn-secondary decrease" type="button">
+            -
+            </button>
+        </div>
+
+        <input 
+            type="number" 
+            class="form-controll form-controll-sm" 
+            style="-moz-apperance: texfield"
+            name="lineItems[{{page.product.id}}][quantity]"
+            title="Quantity"
+            value="{{page.product.minPurchase}}"
+            max="{{ maxQuantity }}"
+            min="{{page.product.minPurchase }}"
+        >
+
+        <div class="input-group-append">
+            <button class="btn btn-secondary increase" type="button">
+            +
+            </button>
+        </div>
+   
+   </div>
+
+   
+
+{% endblock %}

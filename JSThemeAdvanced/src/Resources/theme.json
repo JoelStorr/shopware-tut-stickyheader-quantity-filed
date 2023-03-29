@@ -1,0 +1,60 @@
+{
+  "name": "JSThemeAdvanced",
+  "author": "Shopware AG",
+  "views": [
+     "@Storefront",
+     "@Plugins",
+     "@JSThemeAdvanced"
+  ],
+  "style": [
+    "app/storefront/src/scss/overrides.scss",
+    "@Storefront",
+    "app/storefront/src/scss/base.scss"
+  ],
+  "script": [
+    "@Storefront",
+    "app/storefront/dist/storefront/js/j-s-theme-advanced.js"
+  ],
+  "asset": [
+    "@Storefront",
+    "app/storefront/src/assets"
+  ],
+  "config":{
+    "blocks" : {
+      "jsPlugins":{
+        "label":{
+          "en-GB": "JS Plugins",
+          "de-DE": "JS Plugins"
+        }
+      }
+    },
+
+    "fields":{
+      "activateStickyHeader":{
+        "label": {
+          "en-GB": "Use Sticky header",
+          "de-DE": "Sticky header benutzen"
+        },
+        "type": "switch",
+        "custom":{
+          "bordered":true
+        },
+        "value":false,
+        "editable": true,
+        "block": "jsPlugins"
+      },
+
+      "showOnScrollPosition":{
+        "label": {
+          "en-GB": "Sticky header show scroll position",
+          "de-DE": "Sticky header scroll Position"
+        },
+        "type" : "int",
+        "value": 100,
+        "editable": true,
+        "block": "jsPlugins"
+      }
+    }
+
+  }
+}

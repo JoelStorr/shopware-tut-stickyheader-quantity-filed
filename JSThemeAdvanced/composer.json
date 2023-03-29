@@ -1,0 +1,18 @@
+{
+  "name": "js/theme-advanced",
+  "description": "Advanced Theme Class",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "JSThemeAdvanced\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "JSThemeAdvanced\\JSThemeAdvanced",
+    "label": {
+      "de-DE": "Theme JSThemeAdvanced plugin",
+      "en-GB": "Theme JSThemeAdvanced plugin"
+    }
+  }
+}
